@@ -15,6 +15,7 @@ from utils import write_view_system_frame_pml
 @dataclass
 class ConvexHullFrame:
     frame: int
+    time: float
     volume: float
     coords: np.ndarray
     vertex_indices: np.ndarray
@@ -47,7 +48,8 @@ class ConvexHullTrajectory():
             hull = ConvexHull(coords)
             hulls.append(
                  ConvexHullFrame(
-                            frame = ts,
+                            frame = ts.frame,
+                            time = ts.time,
                             volume = hull.volume,
                             coords = coords,
                             vertex_indices = hull.vertices.copy(),
