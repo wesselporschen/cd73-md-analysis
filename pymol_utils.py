@@ -26,4 +26,3 @@ def write_view_system_frame_pml(residue_selection: list[tuple[int, str]],
     output_path.with_name(f"view_system_frame{frame_index}.pml").write_text("\n".join(lines))
     print(f"Wrote PyMol view script to {output_path.with_name(f"view_system_frame{frame_index}.pml")}")
 
-
