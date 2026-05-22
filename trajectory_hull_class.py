@@ -4,13 +4,14 @@ from functools import cached_property
 
 import MDAnalysis as mda
 from MDAnalysis.analysis import rms
+from MDAnalysis.analysis.results import Results
 import numpy as np
 from scipy.spatial import ConvexHull
 import matplotlib.pyplot as plt
 import seaborn as sns
 from tqdm import tqdm
 
-from utils import write_view_system_frame_pml
+from pymol_utils import write_view_system_frame_pml
 
 @dataclass
 class ConvexHullFrame:
@@ -21,7 +22,7 @@ class ConvexHullFrame:
     vertex_indices: np.ndarray
     simplices: np.ndarray
 
-class ConvexHullTrajectory():
+class Trajectory():
     """
     path_to_trajectories: Path to directory containing trajectory files (e.g. .xtc), must be compatible with the topology file
     path_to_topology: Path to topology file (e.g. .pdb, .gro) compatible with the trajectory files
@@ -60,7 +61,7 @@ class ConvexHullTrajectory():
         return hulls
     
     @cached_property
-    def rmsd(self) -> np.ndarray:
+    def rmsd(self) -> Results:
         """
         Compute RMSD over time for the selected residues, including all heavy atoms (side chains + backbone).
         """
@@ -69,10 +70,10 @@ class ConvexHullTrajectory():
                      ref_frame=0)
         
         R.run()
-        return R.rmsd[:,2]
+        return R.results
     
     @cached_property
-    def rmsd_only_sidechains(self) -> np.ndarray:
+    def rmsd_only_sidechains(self) -> Results:
         """
         Compute RMSD over time for the selected residues, including only side chain atoms.
         """
@@ -81,9 +82,9 @@ class ConvexHullTrajectory():
                      ref_frame=0)
         
         R.run()
-        return R.rmsd[:,2]
+        return R.results
 
-    def plot_volume_over_time(self, title: str) -> None:
+    def plot_volume_over_time(self, title: str, save_figure: bool = False, ax = None) -> None:
         # Raw pocket volumes
         hull_volumes = [hull.volume for hull in self.hulls]
 
@@ -106,7 +107,8 @@ class ConvexHullTrajectory():
         sns.set_theme(style="white", context="talk")
 
         # Plot
-        plt.figure(figsize=(12, 6))
+        if ax is None:
+            fig, ax = plt.figure(figsize=(12, 6))
 
         # Raw data: transparent
         sns.lineplot(
@@ -114,7 +116,8 @@ class ConvexHullTrajectory():
             y=hull_volumes,
             alpha=0.25,
             linewidth=1.2,
-            label="Hull volume"
+            label="Hull volume",
+            ax=ax
         )
 
         # Running average: solid
@@ -122,27 +125,33 @@ class ConvexHullTrajectory():
             x=avg_frames_as_ns,
             y=average_1ns,
             linewidth=2.5,
-            label="1 ns running average"
+            label="1 ns running average",
+            ax=ax
         )
 
-        plt.xlabel("Time (ns)")
-        plt.ylabel("Volume (Å³)")
-        plt.title(f"{title}")
-
-        plt.legend()
-        plt.tight_layout()
+        ax.set_xlabel("Time (ns)")
+        ax.set_ylabel("Volume (Å³)")
+        ax.set_title(f"{title}")
+        ax.legend()
   
-        plt.savefig(self.path_to_trajectories / f'{title.replace(" ", "_")}.png')
-        print("Plot saved to:", self.path_to_trajectories / f'{title.replace(" ", "_")}.png')
-        plt.show()
+        if save_figure and ax is None:
+            plt.savefig(self.path_to_trajectories / f'{title.replace(" ", "_")}.png')
+            print("Plot saved to:", self.path_to_trajectories / f'{title.replace(" ", "_")}.png')
+        
+        if ax is None:
+            plt.tight_layout()
+            plt.show()
     
-    def plot_rmsd_over_time(self, title: str, only_sidechains: bool = False) -> None:
+    def plot_rmsd_over_time(self, title: str, only_sidechains: bool = False, save_figure: bool = False, ax = None) -> None:
+
+
+        #return R.rmsd[:,2]
 
         if only_sidechains:
-            rmsd = self.rmsd_only_sidechains
+            rmsd = self.rmsd_only_sidechains.rmsd[:,2]
             raw_label = "RMSD (side chains only)"
         else:
-            rmsd = self.rmsd
+            rmsd = self.rmsd.rmsd[:,2]
             raw_label = "RMSD (side chains + backbone)"
         
         # Running average (1 ns = 100 frames at 10 ps/frame)
@@ -163,8 +172,9 @@ class ConvexHullTrajectory():
         # Seaborn styling
         sns.set_theme(style="white", context="talk")
 
-        # Plot
-        plt.figure(figsize=(12, 6))
+        # Creates figure only if no axis supplied
+        if ax is None:
+            fig, ax = plt.subplots(figsize(12,6))
 
         # Raw data: transparent
         sns.lineplot(
@@ -172,7 +182,8 @@ class ConvexHullTrajectory():
             y=rmsd,
             alpha=0.25,
             linewidth=1.2,
-            label=raw_label
+            label=raw_label,
+            ax=ax
         )
 
         # Running average: solid
@@ -181,20 +192,22 @@ class ConvexHullTrajectory():
             y=average_1ns,
             linewidth=2.5,
             label="1 ns running average",
-            color='seagreen'
+            color='seagreen',
+            ax=ax
         )
 
-        plt.xlabel("Time (ns)")
-        plt.ylabel("RMSD (Å)")
-        plt.title(f"{title}")
+        ax.set_xlabel("Time (ns)")
+        ax.set_ylabel("RMSD (Å)")
+        ax.set_title(f"{title}")
+        ax.legend()
 
-        plt.legend()
-        plt.tight_layout()
+        if save_figure and ax is None:
+            plt.savefig(self.path_to_trajectories / f'{title.replace(" ", "_")}.png')
+            print("Plot saved to:", self.path_to_trajectories / f'{title.replace(" ", "_")}.png')
 
-        plt.savefig(self.path_to_trajectories / f'{title.replace(" ", "_")}.png')
-        print("Plot saved to:", self.path_to_trajectories / f'{title.replace(" ", "_")}.png')
-        plt.show()
-
+        if ax is None:
+            plt.tight_layout()
+            plt.show()
 
     def write_convex_hull_frame_pdb(self, hull_frame: ConvexHullFrame, output_path: Path | None = None) -> None:
         """
