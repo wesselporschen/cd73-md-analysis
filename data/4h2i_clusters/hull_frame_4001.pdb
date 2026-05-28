@@ -1,0 +1,103 @@
+HETATM    1  C   BOX A   1      49.790 115.500  66.050  1.00  0.00           C
+HETATM    2  C   BOX A   1      54.460 117.060  66.490  1.00  0.00           C
+HETATM    3  C   BOX A   1      53.250 117.820  78.690  1.00  0.00           C
+HETATM    4  C   BOX A   1      52.220 117.100  77.850  1.00  0.00           C
+HETATM    5  C   BOX A   1      48.460 117.230  78.540  1.00  0.00           C
+HETATM    6  C   BOX A   1      47.250 116.380  78.190  1.00  0.00           C
+HETATM    7  C   BOX A   1      49.410 114.600  72.440  1.00  0.00           C
+HETATM    8  C   BOX A   1      43.880 112.830  68.890  1.00  0.00           C
+HETATM    9  C   BOX A   1      45.040 112.150  71.070  1.00  0.00           C
+HETATM   10  C   BOX A   1      44.460 112.520  72.110  1.00  0.00           C
+HETATM   11  C   BOX A   1      50.750 123.980  47.340  1.00  0.00           C
+HETATM   12  C   BOX A   1      47.320 122.610  51.820  1.00  0.00           C
+HETATM   13  C   BOX A   1      48.890 125.380  48.170  1.00  0.00           C
+HETATM   14  C   BOX A   1      47.680 125.380  47.980  1.00  0.00           C
+HETATM   15  C   BOX A   1      48.380 132.280  66.130  1.00  0.00           C
+HETATM   16  C   BOX A   1      32.790 124.580  63.980  1.00  0.00           C
+HETATM   17  C   BOX A   1      33.680 127.200  64.350  1.00  0.00           C
+HETATM   18  C   BOX A   1      35.260 129.670  74.120  1.00  0.00           C
+HETATM   19  C   BOX A   1      36.290 130.460  73.440  1.00  0.00           C
+HETATM   20  C   BOX A   1      37.540 130.200  76.400  1.00  0.00           C
+HETATM   21  C   BOX A   1      36.120 130.320  71.950  1.00  0.00           C
+HETATM   22  C   BOX A   1      40.790 133.360  71.270  1.00  0.00           C
+HETATM   23  C   BOX A   1      41.810 134.030  71.580  1.00  0.00           C
+HETATM   24  C   BOX A   1      39.180 116.480  66.610  1.00  0.00           C
+HETATM   25  C   BOX A   1      35.430 121.800  62.780  1.00  0.00           C
+HETATM   26  C   BOX A   1      34.570 119.310  77.040  1.00  0.00           C
+HETATM   27  C   BOX A   1      33.560 120.000  77.110  1.00  0.00           C
+CONECT    1    2
+CONECT    8   26
+CONECT   10   26
+CONECT   11   15
+CONECT   14   15
+CONECT   21   22
+CONECT   14   23
+CONECT    4    6
+CONECT    8   10
+CONECT   14   16
+CONECT    1    9
+CONECT    3   20
+CONECT    8   24
+CONECT   14   17
+CONECT    2    7
+CONECT   14   25
+CONECT    6   27
+CONECT   18   19
+CONECT   19   21
+CONECT   18   20
+CONECT   17   23
+CONECT    3   15
+CONECT   22   23
+CONECT    3   23
+CONECT   13   14
+CONECT   19   22
+CONECT    3    6
+CONECT    8    9
+CONECT   26   27
+CONECT    5   20
+CONECT    4    7
+CONECT   12   14
+CONECT    9   10
+CONECT    2    3
+CONECT   25   27
+CONECT   12   24
+CONECT    4   10
+CONECT   17   18
+CONECT    1    8
+CONECT   17   21
+CONECT   20   23
+CONECT    6   26
+CONECT   18   27
+CONECT    1   11
+CONECT   24   25
+CONECT    6   10
+CONECT   18   21
+CONECT   17   22
+CONECT    5    6
+CONECT    7    9
+CONECT   11   12
+CONECT   24   27
+CONECT    2    9
+CONECT    3    4
+CONECT   13   15
+CONECT   16   25
+CONECT   11   14
+CONECT   16   17
+CONECT    2   15
+CONECT    5   27
+CONECT   11   24
+CONECT    3    5
+CONECT    8   27
+CONECT   16   27
+CONECT   20   27
+CONECT    3    7
+CONECT    8   11
+CONECT   16   18
+CONECT   15   23
+CONECT    4    9
+CONECT   19   20
+CONECT   12   25
+CONECT    2   11
+CONECT   11   13
+CONECT   19   23
+END
