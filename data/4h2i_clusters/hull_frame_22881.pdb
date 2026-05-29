@@ -1,0 +1,123 @@
+HETATM    1  C   BOX A   1      52.070 121.410  62.540  1.00  0.00           C
+HETATM    2  C   BOX A   1      53.890 117.410  66.310  1.00  0.00           C
+HETATM    3  C   BOX A   1      52.420 119.280  78.470  1.00  0.00           C
+HETATM    4  C   BOX A   1      51.390 118.400  77.740  1.00  0.00           C
+HETATM    5  C   BOX A   1      47.470 118.550  78.130  1.00  0.00           C
+HETATM    6  C   BOX A   1      46.350 117.580  78.120  1.00  0.00           C
+HETATM    7  C   BOX A   1      50.070 116.400  72.610  1.00  0.00           C
+HETATM    8  C   BOX A   1      49.020 115.630  72.020  1.00  0.00           C
+HETATM    9  C   BOX A   1      47.720 115.840  74.840  1.00  0.00           C
+HETATM   10  C   BOX A   1      43.260 114.040  68.430  1.00  0.00           C
+HETATM   11  C   BOX A   1      43.320 112.660  70.930  1.00  0.00           C
+HETATM   12  C   BOX A   1      50.210 124.490  46.460  1.00  0.00           C
+HETATM   13  C   BOX A   1      48.180 125.810  47.050  1.00  0.00           C
+HETATM   14  C   BOX A   1      46.970 125.660  46.960  1.00  0.00           C
+HETATM   15  C   BOX A   1      47.700 131.600  66.440  1.00  0.00           C
+HETATM   16  C   BOX A   1      46.990 133.110  64.630  1.00  0.00           C
+HETATM   17  C   BOX A   1      32.350 125.630  63.270  1.00  0.00           C
+HETATM   18  C   BOX A   1      33.130 128.200  63.270  1.00  0.00           C
+HETATM   19  C   BOX A   1      35.200 130.310  65.810  1.00  0.00           C
+HETATM   20  C   BOX A   1      34.880 130.000  73.240  1.00  0.00           C
+HETATM   21  C   BOX A   1      35.890 130.810  72.590  1.00  0.00           C
+HETATM   22  C   BOX A   1      36.850 129.900  75.360  1.00  0.00           C
+HETATM   23  C   BOX A   1      38.810 130.600  74.820  1.00  0.00           C
+HETATM   24  C   BOX A   1      35.600 130.880  71.050  1.00  0.00           C
+HETATM   25  C   BOX A   1      41.530 133.140  68.420  1.00  0.00           C
+HETATM   26  C   BOX A   1      40.620 133.540  70.740  1.00  0.00           C
+HETATM   27  C   BOX A   1      41.650 133.620  71.380  1.00  0.00           C
+HETATM   28  C   BOX A   1      39.060 117.800  66.480  1.00  0.00           C
+HETATM   29  C   BOX A   1      39.740 120.210  62.070  1.00  0.00           C
+HETATM   30  C   BOX A   1      35.140 123.200  62.160  1.00  0.00           C
+HETATM   31  C   BOX A   1      33.440 119.080  76.050  1.00  0.00           C
+HETATM   32  C   BOX A   1      32.570 119.980  76.190  1.00  0.00           C
+CONECT   12   16
+CONECT   14   16
+CONECT   29   30
+CONECT   14   17
+CONECT    8    9
+CONECT   20   22
+CONECT   26   27
+CONECT   16   25
+CONECT    4    8
+CONECT   18   24
+CONECT   22   27
+CONECT   20   32
+CONECT    6   11
+CONECT   19   24
+CONECT   20   24
+CONECT   17   30
+CONECT   12   14
+CONECT   17   18
+CONECT    3    5
+CONECT    1   15
+CONECT   19   25
+CONECT    2   15
+CONECT   11   31
+CONECT    4    6
+CONECT   17   31
+CONECT   14   29
+CONECT   22   23
+CONECT    2    4
+CONECT    2    8
+CONECT    6   32
+CONECT   20   21
+CONECT    2   11
+CONECT    3   27
+CONECT   21   26
+CONECT   28   29
+CONECT   16   19
+CONECT    3    4
+CONECT    4    7
+CONECT   30   31
+CONECT   11   12
+CONECT   10   12
+CONECT   16   27
+CONECT    3   23
+CONECT   21   22
+CONECT   12   13
+CONECT   18   19
+CONECT   10   14
+CONECT   21   24
+CONECT    8   11
+CONECT    5   22
+CONECT    2    3
+CONECT    6    9
+CONECT    2    7
+CONECT    6   31
+CONECT   10   29
+CONECT    3   15
+CONECT    5    6
+CONECT   13   16
+CONECT    5   32
+CONECT   17   20
+CONECT   22   26
+CONECT   25   26
+CONECT    9   11
+CONECT   23   27
+CONECT   24   26
+CONECT   10   11
+CONECT   16   26
+CONECT    3   22
+CONECT   11   28
+CONECT   14   18
+CONECT   10   28
+CONECT   14   30
+CONECT    1    2
+CONECT   15   16
+CONECT   15   27
+CONECT   13   14
+CONECT    3    6
+CONECT   31   32
+CONECT    4    9
+CONECT   18   20
+CONECT    1   16
+CONECT   28   30
+CONECT   19   26
+CONECT    7    8
+CONECT   22   32
+CONECT   17   32
+CONECT    1   12
+CONECT   14   19
+CONECT   28   31
+CONECT    2   12
+END
